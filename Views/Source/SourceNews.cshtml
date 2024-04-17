@@ -1,51 +1,119 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "SourceNews";
     Layout = "~/Views/Shared/_Source.cshtml";
 }
 
-<div style="padding:30px; border:solid black 1px;border-radius:5px 5px ;display:inline-block;width:30%">  <h4>MainNewsAll</h4> </div>
+<style>
+    /* Navbar Styling */
+    .navbar {
+        background-color: #007bff; /* Bootstrap's primary color */
+    }
 
-<div class="container-fluid">
-    <div class="row">
+    .navbar-brand {
+        color: #fff !important; /* White color for the brand text */
+        font-weight: bold;
+    }
 
+    .navbar-nav .nav-link {
+        color: #fff !important; /* White color for the nav links */
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa !important; /* Slightly lighter color on hover */
+        }
+
+    /* Card Styling */
+    .card {
+        border: none;
+        transition: transform 0.2s;
+        border-radius: 15px;
+        height: 100%; /* Set fixed height for card */
+    }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+    .card-img-top {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        object-fit: cover;
+        height: 200px;
+    }
+
+    .card-body {
+        background-color: #f9f9f9;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        height: calc(100% - 20px); /* Subtract padding from total height */
+        overflow: auto; /* Enable scrolling if content exceeds card height */
+    }
+
+    .comment {
+        background-color: #e9ecef;
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
         @foreach (var item in Model)
         {
-            var Title = item.GetType().GetProperty("Title").GetValue(item, null);
-            var Text = item.GetType().GetProperty("Text").GetValue(item, null);
+            var Title = item.GetType().GetProperty("Title").GetValue(item, null).ToString();
+            var Text = item.GetType().GetProperty("Text").GetValue(item, null).ToString();
             var MultimediaUrl = item.GetType().GetProperty("MultimediaUrl").GetValue(item, null);
             var Comments = item.GetType().GetProperty("Comments").GetValue(item, null);
-            var NewsCategoryId = item.GetType().GetProperty("NewsCategoryId").GetValue(item, null);
-            var CorpationName = item.GetType().GetProperty("CorpationName").GetValue(item, null);
-            var NewsCastId = item.GetType().GetProperty("NewsCastId").GetValue(item, null);
-            var NewsSourceId = item.GetType().GetProperty("NewsSourceId").GetValue(item, null);
 
-            <div class="Col-6">
+            // Truncate Title to 50 characters
+            if (Title.Length > 50)
+            {
+                Title = Title.Substring(0, 50) + "...";
+            }
 
-                <div class="card" style="width:100%;margin-top:15px;">
-                    <img src="~/Images/NewsImages/@MultimediaUrl" style="height:500px" class="card-img-top" alt="MultimediaUrl">
+            // Truncate Text to 150 words
+            if (Text.Split(' ').Length > 50)
+            {
+                var words = Text.Split(' ');
+                var truncatedWords = new string[50];
+                Array.Copy(words, truncatedWords, 50);
+                Text = string.Join(" ", truncatedWords) + "...";
+            }
+
+            <div class="col-md-5 col-lg-4 mb-4">
+                <div class="card shadow">
+                    <img src="~/Images/NewsImages/@MultimediaUrl" class="card-img-top" alt="MultimediaUrl">
                     <div class="card-body">
                         <h3 class="card-title">@Title</h3>
                         <p class="card-text">@Text</p>
-                        <br />
-                        <div style="padding:10px; border:solid black 1px;border-radius:5px 5px ;display:inline-block">
-                            <h5><b> Source</b></h5> <span>  @CorpationName</span>
-                        </div>
 
-                        <hr />
-                        <h5><b> Comments</b></h5>
-                        @if (Comments != null)
-                        {
-                            foreach (var comment in (IEnumerable<object>)Comments)
+                        <div class="comment mt-4">
+                            <h5 class="mb-3"><b>Comments</b></h5>
+                            @if (Comments != null)
                             {
-                                var Comment = comment.GetType().GetProperty("Comment").GetValue(comment, null);
-                                var CommentUserName = comment.GetType().GetProperty("UserName").GetValue(comment, null);
-                                <p><b>@CommentUserName</b>@Comment</p>
+                                foreach (var comment in (IEnumerable<object>)Comments)
+                                {
+                                    var Comment = comment.GetType().GetProperty("Comment").GetValue(comment, null);
+                                    var CommentUserName = comment.GetType().GetProperty("UserName").GetValue(comment, null);
+                                    <div>
+                                        <p><b>@CommentUserName</b>: @Comment</p>
+                                    </div>
+                                }
                             }
-                        }
+                            else
+                            {
+                                <p>No comments yet.</p>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
         }
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

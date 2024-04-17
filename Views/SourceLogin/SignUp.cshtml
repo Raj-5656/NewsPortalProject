@@ -4,63 +4,51 @@
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
 
-
-
-
 <center>
     @using (Html.BeginForm())
     {
-
-
         <div style="text-align: center;">
             <div class="card p-4" style="display: inline-block; margin-top: 50px; background-color: #f8f9fa; border: none; border-radius: 7px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
 
                 <div class="card-header bg-primary text-white text-center mb-4" style="border-radius: 7px; height:50px">
-                    <h3>SOURCE LOGIN</h3>
+                    <h3>Source Sign Up</h3>
                 </div>
 
                 <div id="errorMessage" class="text-danger mb-4"></div>
 
-                <div class="form-group mb-4">
-                    <div class="row">
-                        <div class="col-md-2 ">
-                            @Html.LabelFor(model => model.CorpationName, htmlAttributes: new { @class = "control-label" })
-                        </div>
-                        <div class="col-md-10 mt-5 m-lg-1">
-                            @Html.EditorFor(model => model.CorpationName, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
+                <div class="form-group row mb-4">
+                    <div class="col-md-5 col-form-label">
+                        @Html.LabelFor(model => model.CorpationName, "Corporation Name")
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CorpationName, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                 </div>
 
-                <div class="form-group mb-4">
-                    <div class="row">
-                        <div class="col-md-2">
-                            @Html.LabelFor(model => model.CorpationPassword, htmlAttributes: new { @class = "control-label" })
-                        </div>
-                        <div class="col-md-10 mt-5 m-lg-1">
-                            @Html.EditorFor(model => model.CorpationPassword, new { htmlAttributes = new { @class = "form-control" } })
-                        </div>
+                <div class="form-group row mb-4">
+                    <div class="col-md-6 col-form-label p-0">
+                        @Html.LabelFor(model => model.CorpationPassword, "Corporation Password")
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CorpationPassword, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-offset-2 col-md-11.5">
+                        <div class="col-md-offset-2 col-md-13">
                             <input type="submit" value="Create" class="btn btn-primary" style="background-color: #007bff; border-color: #007bff;" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
     }
 </center>
 
 <script>
-        var errorMessage = '@ViewBag.ErrorMessage';
-        if (errorMessage.length > 0) {
-            document.getElementById('errorMessage').innerHTML = errorMessage;
-        }
+    var errorMessage = '@ViewBag.ErrorMessage';
+    if (errorMessage.length > 0) {
+        document.getElementById('errorMessage').innerHTML = errorMessage;
+    }
 </script>

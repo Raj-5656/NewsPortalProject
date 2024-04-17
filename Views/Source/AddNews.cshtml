@@ -4,24 +4,102 @@
     Layout = "~/Views/Shared/_Source.cshtml";
 }
 
-<h2>Add News</h2>
-<form style="margin-left:30px"  method="post" enctype="multipart/form-data">
-    <label for="Title">News Title</label>
-    <input class="form-control" type="text" name="Title" id="Title" />
+<style>
+    /* Navbar Styling */
+    .navbar {
+        background-color: #007bff; /* Bootstrap's primary color */
+    }
 
-    <label  for="Text">News Text</label>
-    <textarea class="form-control" id="Text" name="Text" rows="4" cols="50">
-     </textarea>
-    <select style="margin-top:10px" class="form-control"  name="NewsCategoryId" id="NewsCategoryId">
-        @foreach (var item in Model)
-        {
-            <option value="@item.NewsCategoryId">@item.Category</option>
+    .navbar-brand {
+        color: #fff !important; /* White color for the brand text */
+        font-weight: bold;
+    }
+
+    .navbar-nav .nav-link {
+        color: #fff !important; /* White color for the nav links */
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa !important; /* Slightly lighter color on hover */
         }
-    </select>
-    <label style="margin-top:10px"  for="Image">News Image</label>
-    <input class="form-control" type="file" name="Image" id="Image" />
 
-    <input style="margin-top:10px" type="submit" class="btn btn-dark w-100" value="AddNews" />
+    /* Form Styling */
+    .form-container {
+        max-width: 600px; /* Set maximum width for the form */
+        margin: 50px auto; /* Center the form on the page */
+        background-color: #f0f0f0; /* Light gray background color */
+        padding: 30px; /* Add some padding inside the container */
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+        text-align: left; /* Align text to left */
+    }
 
+    h2 {
+        background-color: #007bff; /* Blue background color for h2 */
+        color: #fff; /* White text color for h2 */
+        padding: 10px; /* Add padding to h2 */
+        border-radius: 8px; /* Rounded corners for h2 */
+        margin-bottom: 30px; /* Add margin bottom to h2 */
+        text-align: center; /* Center align h2 text */
+    }
 
-</form>
+    label {
+        font-weight: bold;
+    }
+
+    .form-group {
+        margin-bottom: 20px; /* Add margin bottom to form groups */
+    }
+
+    /* Button Styling */
+    .btn-dark {
+        background-color: #007bff; /* Blue background color */
+        border-color: #007bff;
+    }
+
+        .btn-dark:hover {
+            background-color: #0056b3; /* Darker blue color on hover */
+            border-color: #0056b3;
+        }
+</style>
+
+<div class="container-fluid" style="height: 100vh; background-color: white; display: flex; align-items: center; justify-content: center;">
+    <div class="form-container">
+        <h2>Add News</h2>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="Title">News Title</label>
+                <input class="form-control" type="text" name="Title" id="Title" />
+            </div>
+
+            <div class="form-group">
+                <label for="Text">News Text</label>
+                <textarea class="form-control" id="Text" name="Text" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="NewsCategoryId">News Category</label>
+                <select class="form-control" name="NewsCategoryId" id="NewsCategoryId">
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.NewsCategoryId">@item.Category</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Image">News Image</label>
+                <input class="form-control-file" type="file" name="Image" id="Image" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-dark btn-block" value="Add News" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
