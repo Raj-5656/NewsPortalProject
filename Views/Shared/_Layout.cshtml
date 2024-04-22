@@ -12,21 +12,28 @@
         /* Navbar Styling */
         .navbar {
             background-color: #007bff; /* Blue background color */
+            display: flex;
+            align-items: center; /* Vertically center the items */
         }
 
-        .navbar-nav .nav-item:not(:last-child) {
-            margin-right: 20px; /* Equal spacing between li items */
+        .navbar-nav {
+            display: flex;
+            align-items: center; /* Vertically center the items */
         }
 
-        .navbar-nav .nav-link {
-            color: #ffffff !important; /* White color for the nav links */
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-            .navbar-nav .nav-link:hover {
-                color: #f8f9fa !important; /* Lighter color on hover */
+            .navbar-nav .nav-item:not(:last-child) {
+                margin-right: 20px; /* Equal spacing between li items */
             }
+
+            .navbar-nav .nav-link {
+                color: #ffffff !important; /* White color for the nav links */
+                font-weight: 500;
+                transition: color 0.3s;
+            }
+
+                .navbar-nav .nav-link:hover {
+                    color: #f8f9fa !important; /* Lighter color on hover */
+                }
 
         .navbar-brand {
             color: white;
@@ -41,6 +48,23 @@
             height: 39px;
         }
 
+        #search {
+            margin-top: 10px;
+        }
+
+        #search-News {
+            margin-top: 10px;
+        }
+
+        /* Notification Style */
+        .notification .nav-link {
+            color: white !important; /* White color for the notification */
+            border: none; /* Remove border */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         /* Footer Styling */
         footer {
             background-color: #007bff; /* Blue background color */
@@ -50,24 +74,19 @@
             border-radius: 0 0 10px 10px; /* Rounded corners only at the bottom */
             padding-top: 25px;
         }
+
     </style>
 </head>
 <body>
-    <div style="margin-left:10px;margin-right:10px;margin-top:30px; border:solid 1px black;border-radius:10px">
+    <div style="margin-left:10px;margin-right:10px;margin-top:10px; border:solid 1px black;">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand " style="padding:10px" href="~/NewsCasts/MainNewsAll">NewsPortal</a>
+                <a class="navbar-brand" style="padding:10px" href="~/NewsCasts/MainNewsAll">NewsPortal</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="~/NewsCasts/MainNewsAll">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="~/NewsCasts/MainNewsPopuler">Popular and Latest news</a>
-                        </li>
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="~/NewsFavs/UserFavDetail">My Favorite News</a>
                         </li>
@@ -81,16 +100,17 @@
                             <a class="nav-link active" href="~/Users/UsersDetail">My Profile</a>
                         </li>
                         <li class="nav-item">
-                            @Html.Action("SharredNotifation", "NewsShares")
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link active" href="~/Login/LogOut">LogOut</a>
                         </li>
+                        <li class="notification nav-item">
+                            @Html.Action("SharredNotifation", "NewsShares")
+                        </li>
+
                     </ul>
                     <div style="float:right">
                         <form class="input-group" method="post" action="/NewsCasts/SearchNews">
                             <input id="search" name="query" class="form-control" type="text" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search News</button>
+                            <button id="search-News" class="btn btn-outline-success" type="submit">Search News</button>
                         </form>
                     </div>
                 </div>
