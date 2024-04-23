@@ -9,76 +9,88 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
+        /* Global Styling */
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0; /* Removed margin */
+            padding: 0; /* Removed padding */
+        }
+
         /* Navbar Styling */
         .navbar {
-            background-color: #007bff; /* Blue background color */
+            background-color: #ffffff;
             display: flex;
-            align-items: center; /* Vertically center the items */
+            align-items: center;
+            padding: 5px 20px;
+            margin: 0; /* Removed margin */
         }
 
         .navbar-nav {
             display: flex;
-            align-items: center; /* Vertically center the items */
+            align-items: center;
+            margin: 0; /* Removed margin */
         }
 
-            .navbar-nav .nav-item:not(:last-child) {
-                margin-right: 20px; /* Equal spacing between li items */
-            }
+        .navbar-nav .nav-item:not(:last-child) {
+            margin-right: 20px;
+        }
 
-            .navbar-nav .nav-link {
-                color: #ffffff !important; /* White color for the nav links */
-                font-weight: 500;
-                transition: color 0.3s;
-            }
+        .navbar-nav .nav-link {
+            color: #000000 !important;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-                .navbar-nav .nav-link:hover {
-                    color: #f8f9fa !important; /* Lighter color on hover */
-                }
+        .navbar-nav .nav-link:hover {
+            color: #555555 !important;
+        }
 
         .navbar-brand {
-            color: white;
+            color: #000000;
         }
 
         .btn-outline-success {
-            color: white;
-            border: 1px solid white;
+            color: #ffffff;
+            border: 1px solid #ffffff;
         }
 
         .form-control {
             height: 39px;
+            background-color: #ffffff;
+            color: #000000;
         }
 
-        #search {
-            margin-top: 10px;
-        }
-
-        #search-News {
-            margin-top: 10px;
-        }
-
-        /* Notification Style */
-        .notification .nav-link {
-            color: white !important; /* White color for the notification */
-            border: none; /* Remove border */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Card Styling */
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            color: #000000;
         }
 
         /* Footer Styling */
         footer {
-            background-color: #007bff; /* Blue background color */
-            color: white; /* White text color */
-            text-align: center; /* Center-align text */
-            padding: 10px 0; /* Padding top and bottom */
-            border-radius: 0 0 10px 10px; /* Rounded corners only at the bottom */
-            padding-top: 25px;
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 0 0 10px 10px;
+            margin: 0; /* Removed margin */
+        }
+
+        /* Font Color */
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff;
+        }
+
+        p, li, a {
+            color: #CCCCCC;
         }
 
     </style>
 </head>
 <body>
-    <div style="margin-left:10px;margin-right:10px;margin-top:10px; border:solid 1px black;">
+    <div>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" style="padding:10px" href="~/NewsCasts/MainNewsAll">NewsPortal</a>
@@ -105,7 +117,6 @@
                         <li class="notification nav-item">
                             @Html.Action("SharredNotifation", "NewsShares")
                         </li>
-
                     </ul>
                     <div style="float:right">
                         <form class="input-group" method="post" action="/NewsCasts/SearchNews">
@@ -116,6 +127,7 @@
                 </div>
             </div>
         </nav>
+
     </div>
 
     <!-- Your existing content -->
@@ -130,12 +142,12 @@
                 </div>
             </div>
         </div>
-        <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - NewsPortal Application for Sarvajanik College</p>
         </footer>
-    </div>
 
+    </div>
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

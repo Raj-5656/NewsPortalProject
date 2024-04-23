@@ -1,48 +1,52 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "GetShareTable";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
 <h2>My Share List</h2>
-
-
-<table  class="table" >
-    <thead>
-        <tr>
-            <th scope="col">
-                News Title
-            </th>
-            <th scope="col">
-                Send User Name
-            </th>
-            <th scope="col">
-                Recive User Name
-            </th>
-            <th scope="col">
-                Share Date
-            </th>
-        </tr>
-    </thead>
-    @foreach (var item in Model)
-    {
-        var Title = item.GetType().GetProperty("Title").GetValue(item, null);
-        var UName = item.GetType().GetProperty("UName").GetValue(item, null);
-        var SName = item.GetType().GetProperty("SName").GetValue(item, null);
-        var Date = item.GetType().GetProperty("Date").GetValue(item, null);
-        var NewsShareId = item.GetType().GetProperty("NewsShareId").GetValue(item, null);
-
-
-        <tr>
-            <td >@Title</td>
-            <td>@UName</td>
-            <td>@SName</td>
-            <td>@Date</td>
-
-        </tr>
-
-
+<style>
+    /* Table styling */
+    .table-bordered {
+        border: 1px solid #dee2e6;
     }
-</table>
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #dee2e6;
+        }
+
+    .table-hover tbody tr:hover {
+        background-color: #f5f5f5; /* Hover color for rows */
+    }
+
+</style>
+<!-- Table for Share List -->
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">News Title</th>
+                <th scope="col">Send User Name</th>
+                <th scope="col">Receive User Name</th>
+                <th scope="col">Share Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var Title = item.GetType().GetProperty("Title").GetValue(item, null);
+                var UName = item.GetType().GetProperty("UName").GetValue(item, null);
+                var SName = item.GetType().GetProperty("SName").GetValue(item, null);
+                var Date = item.GetType().GetProperty("Date").GetValue(item, null);
+                var NewsShareId = item.GetType().GetProperty("NewsShareId").GetValue(item, null);
+
+                <tr>
+                    <td>@Title</td>
+                    <td>@UName</td>
+                    <td>@SName</td>
+                    <td>@Date</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

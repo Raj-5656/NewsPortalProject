@@ -6,27 +6,50 @@
 @{
     string previousCorporationName = null;
 }
-<ul class="list-group">
+<style>
+    /* Add hover effect to the card */
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Add a shadow on hover */
+        transform: scale(1.05); /* Scale up the card slightly on hover */
+    }
+
+    /* Ensure all cards have the same size */
+    .card {
+        height: 100%; /* This ensures that all cards have the same height */
+    }
+
+    /* Add border-radius to the top of the card image */
+    .card-img-top {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+</style>
+
+
+<!-- List of Subscribed Corporations -->
+<ul class="list-group mb-4">
     @foreach (var item in Model)
     {
-        var CorpationName = item.GetType().GetProperty("CorpationName").GetValue(item, null) as string;
+        var CorporationName = item.GetType().GetProperty("CorpationName").GetValue(item, null) as string;
         var NewsSourceId = item.GetType().GetProperty("NewsSourceId").GetValue(item, null);
 
-        if (previousCorporationName != CorpationName)
+        if (previousCorporationName != CorporationName)
         {
-            <li class="list-group-item">
-                @CorpationName
-                <form  method="post" action="/NewsSubscribers/UserDelSubs">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @CorporationName
+                <form method="post" action="/NewsSubscribers/UserDelSubs">
                     <input type="hidden" name="NewsSourceId" value="@NewsSourceId" />
-                    <button  type="submit" class="btn btn-danger">Unsubscribe!</button>
+                    <button type="submit" class="btn btn-danger">Unsubscribe!</button>
                 </form>
             </li>
         }
 
-        previousCorporationName = CorpationName;
+        previousCorporationName = CorporationName;
     }
 </ul>
 
+<!-- News Cards -->
 <div class="container-fluid">
     <div class="row">
         @foreach (var item in Model)
@@ -36,34 +59,31 @@
             var NewsCastId = item.GetType().GetProperty("NewsCastId").GetValue(item, null);
             var MultimediaUrl = item.GetType().GetProperty("MultimediaUrl").GetValue(item, null);
             var NewsCategoryId = item.GetType().GetProperty("NewsCategoryId").GetValue(item, null);
-            var CorpationName = item.GetType().GetProperty("CorpationName").GetValue(item, null);
+            var CorporationName = item.GetType().GetProperty("CorpationName").GetValue(item, null);
             var NewsSourceId = item.GetType().GetProperty("NewsSourceId").GetValue(item, null);
 
-
-            <div class="col-6">
-                <div class="card" style="width:100%;margin-top:15px;">
-                    <img src="~/Images/NewsImages/@MultimediaUrl" class="card-img-top" alt="MultimediaUrl">
+            <div class="col-6 mb-4">
+                <div class="card h-100 rounded" style="width:100%; margin-top:15px; transition: transform 0.3s ease-in-out;">
+                    <img src="~/Images/NewsImages/@MultimediaUrl" class="card-img-top rounded-top img-fluid" alt="MultimediaUrl" style="height: 260px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                     <div class="card-body">
                         <h3 class="card-title">@Title</h3>
                         <p class="card-text">@Text.ToString().Substring(0, 200) ....</p>
                         <form method="post" action="/NewsCasts/MainNewsAllDetail">
                             <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                            <button class="btn btn-danger" type="submit">Go Details,Comments and Shares</button>
+                            <button class="btn btn-danger" type="submit">Go Details, Comments and Shares</button>
                         </form>
                         <br />
-                        <div style="padding:10px; border:solid black 1px;border-radius:5px 5px ;display:inline-block;margin-bottom:20px;">
-                            <h6><b> Source</b></h6> <span>  @CorpationName</span>
+                        <div class="border p-2 rounded mb-2">
+                            <h6><b>Source</b></h6>
+                            <span>@CorporationName</span>
                         </div>
                         <div>
                             <form method="post" action="/NewsSubscribers/UserDelSubs">
                                 <input type="hidden" name="NewsSourceId" value="@NewsSourceId" />
-                                <button type="submit" class="btn btn-danger">Unsubscribe! </button>
+                                
                             </form>
                         </div>
-
-
                     </div>
-
                 </div>
             </div>
         }

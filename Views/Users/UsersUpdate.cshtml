@@ -4,57 +4,105 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>UsersUpdate</h2>
-<img src="~/Images/UserImages/@Model.ImageUrl" width="100" />
+<style>
+    /* Profile Update styling */
+    .profile-update {
+        background-color: #f4f4f4;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">@Model.Name @Model.Surname</h5>
-        <p class="card-text">
-            <b>Age:</b> @Model.Age <br />
-            <b>Email:</b>@Model.Email <br />
-            <b>Password</b> @Model.Password <br />
-            <b>Update Date</b> @Model.RegisterDate <br />
+    /* Form styling */
+    .profile-form {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
+    /* Button styling */
+    .btn-success {
+        background-color: #4CAF50;
+        border-color: #4CAF50;
+        border-radius: 25px;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease-in-out;
+    }
 
-        </p>
-        <a href="~/Users/" class="btn btn-primary">Update My Profile</a>
+        .btn-success:hover {
+            background-color: #45a049;
+            border-color: #45a049;
+        }
+
+    /* Form input styling */
+    .form-control {
+        border-radius: 20px;
+    }
+
+    /* Heading styling */
+    .profile-heading {
+        color: #4CAF50; /* Matching button color */
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 30px; /* Increased font size */
+    }
+
+    /* Profile photo styling */
+    .profile-photo {
+        width: 200px; /* Adjusted photo size */
+        height: 200px;
+        object-fit: cover;
+        object-position:left;
+        border-radius: 50%; /* Making it a circle */
+        margin: 0 auto; /* Centering photo */
+        display: block;
+        margin-bottom: 20px; /* Spacing below photo */
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="profile-update">
+                <h1 class="profile-heading">Update Profile</h1>
+                <img src="~/Images/UserImages/@Model.ImageUrl" width="150" class="profile-photo" />
+
+                <div class="profile-form">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="Name" class="form-label">Name</label>
+                            <input type="text" name="Name" id="Name" class="form-control" value="@Model.Name" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Surname" class="form-label">Surname</label>
+                            <input type="text" name="Surname" id="Surname" class="form-control" value="@Model.Surname" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Age" class="form-label">Age</label>
+                            <input type="text" name="Age" id="Age" class="form-control" value="@Model.Age" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">Email</label>
+                            <input type="email" name="Email" id="Email" class="form-control" value="@Model.Email" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">Password</label>
+                            <input type="password" name="Password" id="Password" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Image" class="form-label">Image</label>
+                            <input type="file" name="Image" id="Image" class="form-control" />
+                        </div>
+                        <div class="mb-3 text-center">
+                            <button class="btn btn-success"><i class="fas fa-save"></i> Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<form method="post" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label for="Name" class="form-label">Name</label>
-        <input type="text" name="Name" id="Name" class="form-control" />
-    </div>
-    <div class="mb-3">
-        <label for="Surname" class="form-label">Surname</label>
-        <input type="text" name="Surname" id="Surname" class="form-control" />
-    </div>
-    <div class="mb-3">
-        <label for="Age" class="form-label">Age</label>
-        <input type="text" name="Age" id="Age" class="form-control" />
-    </div>
-    <div class="mb-3">
-        <label for="Email" class="form-label">Email</label>
-        <input type="email" name="Email" id="Email" class="form-control" />
-    </div>
-    <div class="mb-3">
-        <label for="Password" class="form-label">Password</label>
-        <input type="password" name="Password" id="Password" class="form-control" />
-    </div>
-    <div class="mb-3">
-        <label for="Image" class="form-label">Image</label>
-        <input type="file" name="Image" id="Image" class="form-control" />
-    </div>
-    <div class="mb-3">
-        <button class="btn btn-success"> Submit</button>
-    </div>
-
-
-
-
-
-
-</form>
-
+<!-- FontAwesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">

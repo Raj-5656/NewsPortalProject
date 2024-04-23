@@ -1,23 +1,99 @@
-﻿@model  NewsPortalProject.Models.User
+﻿@model NewsPortalProject.Models.User
 @{
     ViewBag.Title = "UsersDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    /* Profile Card styling */
+    .profile-card {
+        border-radius: 25px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        max-width: 400px;
+        background-color: #ffffff;
+        margin-bottom: 50px; /* Added margin to ensure it doesn't overlap with footer */
+    }
 
-<h2>My Profile Detail</h2>
+    .card-img-top {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+    }
 
-<div class="card" style="width: 18rem;">
-    <img src="~/Images/UserImages/@Model.ImageUrl" width="100" />
-    <div class="card-body">
-        <h5 class="card-title">@Model.Name @Model.Surname</h5>
-        <p class="card-text">
-            <b>Age:</b> @Model.Age <br />
-            <b>Email:</b>@Model.Email <br />
-            <b>Password</b> @Model.Password <br />
-            <b>Update Date</b> @Model.RegisterDate <br />
+    .card-body {
+        padding: 20px;
+        text-align: center;
+    }
 
+    .list-group-item {
+        border: none;
+        background-color: #ffffff;
+        margin-top: 15px;
+        padding: 10px 15px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        </p>
-        <a href="~/Users/UsersUpdate" class="btn btn-primary">Update My Profile</a>
+        .list-group-item b {
+            font-weight: 600;
+            color: #333333;
+        }
+
+    .btn-primary {
+        margin-top: 15px;
+        padding: 10px 20px;
+        border-radius: 25px;
+        background-color: #4CAF50;
+        border-color: #4CAF50;
+        color: #ffffff;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+            border-color: #45a049;
+        }
+
+    .fa {
+        margin-right: 10px;
+    }
+
+    .center-profile-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px; /* Added margin at the top to center it vertically */
+    }
+
+    .profile {
+        color: #4CAF50;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center center-profile-card">
+        <div class="col-md-8">
+            <div class="profile-card">
+                <h2 class="text-center mt-4 profile">My Profile</h2>
+                <img src="~/Images/UserImages/@Model.ImageUrl" class="card-img-top" alt="User Image">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="fa fa-user"></i><b>Name:</b> @Model.Name @Model.Surname</li>
+                        <li class="list-group-item"><i class="fa fa-birthday-cake"></i><b>Age:</b> @Model.Age</li>
+                        <li class="list-group-item"><i class="fa fa-envelope"></i><b>Email:</b> @Model.Email</li>
+                        <li class="list-group-item"><i class="fa fa-venus-mars"></i><b>Gender:</b> @Model.Gender</li>
+                        <li class="list-group-item"><i class="fa fa-calendar"></i><b>Register Date:</b> @Model.RegisterDate</li>
+                    </ul>
+                    <div class="text-center mt-4">
+                        <a href="~/Users/UsersUpdate" class="btn btn-primary"><i class="fa fa-edit"></i>Update My Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
