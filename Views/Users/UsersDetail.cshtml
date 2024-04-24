@@ -10,15 +10,20 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         max-width: 400px;
-        background-color: #ffffff;
-        margin-bottom: 50px; /* Added margin to ensure it doesn't overlap with footer */
+        background-color: #333333; /* Dark gray background color */
+        color: #ffffff; /* White text color */
+        margin-bottom: 50px;
     }
 
-    .card-img-top {
-        width: 100%;
-        height: 250px;
+    .profile-img {
+        width: 150px;
+        height: 150px;
         object-fit: cover;
-        transition: transform 0.3s ease-in-out;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        display: block; /* To center the image horizontally */
+        margin-left: auto; /* To center the image horizontally */
+        margin-right: auto; /* To center the image horizontally */
     }
 
     .card-body {
@@ -28,16 +33,17 @@
 
     .list-group-item {
         border: none;
-        background-color: #ffffff;
+        background-color: #444444;
         margin-top: 15px;
         padding: 10px 15px;
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: #ffffff; /* White text color */
     }
 
         .list-group-item b {
             font-weight: 600;
-            color: #333333;
+            color: #ffffff; /* White text color for bold items */
         }
 
     .btn-primary {
@@ -63,13 +69,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 50px; /* Added margin at the top to center it vertically */
+        margin-top: 50px;
     }
 
     .profile {
-        color: #4CAF50;
         text-align: center;
         margin-bottom: 20px;
+        color: #ffffff; /* White text color */
+    }
+
+    .profile-info {
+        text-align: left;
     }
 </style>
 
@@ -78,9 +88,9 @@
         <div class="col-md-8">
             <div class="profile-card">
                 <h2 class="text-center mt-4 profile">My Profile</h2>
-                <img src="~/Images/UserImages/@Model.ImageUrl" class="card-img-top" alt="User Image">
+                <img src="~/Images/UserImages/@Model.ImageUrl" class="profile-img" alt="User Image">
                 <div class="card-body">
-                    <ul class="list-group list-group-flush">
+                    <ul class="list-group list-group-flush profile-info">
                         <li class="list-group-item"><i class="fa fa-user"></i><b>Name:</b> @Model.Name @Model.Surname</li>
                         <li class="list-group-item"><i class="fa fa-birthday-cake"></i><b>Age:</b> @Model.Age</li>
                         <li class="list-group-item"><i class="fa fa-envelope"></i><b>Email:</b> @Model.Email</li>

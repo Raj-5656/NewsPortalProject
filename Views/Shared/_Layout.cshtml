@@ -11,44 +11,55 @@
     <style>
         /* Global Styling */
         body {
-            background-color: #121212;
+            background-color: black;
             color: #ffffff;
-            margin: 0; /* Removed margin */
-            padding: 0; /* Removed padding */
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
         }
 
         /* Navbar Styling */
         .navbar {
-            background-color: #ffffff;
+            background-color: black; /* Transparent background */
             display: flex;
             align-items: center;
-            padding: 5px 20px;
-            margin: 0; /* Removed margin */
+            padding: 5px 10px;
+            margin: 0;
+            border:1px solid  white; /* Remove border */
         }
 
         .navbar-nav {
             display: flex;
             align-items: center;
-            margin: 0; /* Removed margin */
+            list-style: none; /* Remove list bullets */
+            margin-left: auto; /* Pushes items to the right */
         }
 
-        .navbar-nav .nav-item:not(:last-child) {
-            margin-right: 20px;
-        }
+            .navbar-nav .nav-item:not(:last-child) {
+                margin-right: 20px;
+            }
 
-        .navbar-nav .nav-link {
-            color: #000000 !important;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+            .navbar-nav .nav-link {
+                color: #ffffff !important;
+                font-weight: 500;
+                padding: 10px; /* Added padding to the nav links */
+            }
 
-        .navbar-nav .nav-link:hover {
-            color: #555555 !important;
-        }
+                /* Remove hover effect */
+                .navbar-nav .nav-link:hover {
+                    color: #ffffff !important; /* Keep the color the same as non-hover */
+                }
 
         .navbar-brand {
-            color: #000000;
+            color: #ffffff;
+            text-decoration: none; /* Remove underline */
         }
+
+            /* Remove hover effect from navbar-brand */
+            .navbar-brand:hover {
+                color: #ffffff;
+            }
 
         .btn-outline-success {
             color: #ffffff;
@@ -63,19 +74,24 @@
 
         /* Card Styling */
         .card {
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
+            background-color: black;
+            border: 1px solid White;
             color: #000000;
         }
 
         /* Footer Styling */
         footer {
-            background-color: #ffffff;
+            background-color: black; /* Transparent background */
             color: #000000;
             text-align: center;
             padding: 10px 0;
-            border-radius: 0 0 10px 10px;
-            margin: 0; /* Removed margin */
+            
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            border:1px solid white; /* Remove border */
         }
 
         /* Font Color */
@@ -87,18 +103,44 @@
             color: #CCCCCC;
         }
 
+        /* Container for main content */
+        .body-content {
+            padding-top: 20px;
+            padding-bottom: 60px;
+        }
+
+        #search {
+            width: 100px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        #search-News {
+            margin-top: 10px;
+        }
+
+        .notification {
+            margin-top: 7px;
+        }
+        
+        
     </style>
 </head>
 <body>
     <div>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" style="padding:10px" href="~/NewsCasts/MainNewsAll">NewsPortal</a>
+                <a class="navbar-brand" style="padding:10px" href="~/NewsCasts/MainNewsAll">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
+                        <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5z" />
+                        <path d="M2 3h10v2H2zm0 3h4v3H2zm0 4h4v1H2zm0 2h4v1H2zm5-6h2v1H7zm3 0h2v1h-2zM7 8h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2zm-3 2h2v1H7zm3 0h2v1h-2z" />
+                    </svg> NewsPortal
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="~/NewsFavs/UserFavDetail">My Favorite News</a>
                         </li>
@@ -118,16 +160,15 @@
                             @Html.Action("SharredNotifation", "NewsShares")
                         </li>
                     </ul>
-                    <div style="float:right">
+                    <div>
                         <form class="input-group" method="post" action="/NewsCasts/SearchNews">
-                            <input id="search" name="query" class="form-control" type="text" placeholder="Search" aria-label="Search">
-                            <button id="search-News" class="btn btn-outline-success" type="submit">Search News</button>
+                            <input id="search" name="query" class=" form-control" type="text" placeholder="Search" aria-label="Search">
+                            <button id="search-News" class="btn btn-outline-success" type="submit">Search</button>
                         </form>
                     </div>
                 </div>
             </div>
         </nav>
-
     </div>
 
     <!-- Your existing content -->
@@ -142,12 +183,12 @@
                 </div>
             </div>
         </div>
-        <footer>
-            <p>&copy; @DateTime.Now.Year - NewsPortal Application for Sarvajanik College</p>
-        </footer>
-
     </div>
-    
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - NewsPortal Application for Sarvajanik College</p>
+    </footer>
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

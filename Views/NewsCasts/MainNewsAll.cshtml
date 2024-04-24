@@ -8,12 +8,12 @@
 <style>
     /* Card Styling */
     .card {
-        border: none;
+        border: 1px solid white;
         transition: transform 0.2s;
         border-radius: 15px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        height: 670px; /* Fixed height for the card */
-        
+        height: 650px; /* Fixed height for the card */
+        margin-bottom: 30px; /* Added margin at the bottom */
     }
 
         .card:hover {
@@ -25,11 +25,10 @@
         border-top-right-radius: 15px;
         object-fit: cover;
         height: 250px; /* Fixed height for the image */
-        
     }
 
     .card-body {
-        background-color: #333333;
+        background-color: black;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
         height: 250px; /* Fixed height for the card-body */
@@ -59,9 +58,14 @@
         .source-container h6 {
             margin-bottom: 0;
         }
-        .btn{
-            margin-bottom:20px;
-        }
+
+    .btn {
+        margin-bottom: 20px;
+    }
+
+    .corp-name {
+        color: cadetblue;
+    }
 </style>
 
 <div class="container-fluid">
@@ -91,7 +95,7 @@
 
                         <div class="source-container">
                             <h6><b>Source</b></h6>
-                            <span>@CorpationName</span>
+                            <span class="corp-name">@CorpationName</span>
                         </div>
                     </div>
                 </div>

@@ -26,6 +26,10 @@
         border-radius: 10px;
         display: inline-block;
     }
+    .btn{
+        background-color:brown;
+        color:white;
+    }
 </style>
 
 <div class="container" style="max-width: 800px;">
@@ -92,7 +96,7 @@
                 <!-- Favorite, Subscribe, Tweet Buttons -->
                 <form method="post" action="/NewsCasts/SendTweet" class="mb-2">
                     <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                    <button class="btn btn-primary w-100" type="submit">Send</button>
+                    <button class="btn btn-outline-danger w-100" type="submit">Send</button>
                 </form>
                 <form method="post" action="/NewsFavs/UserFavAdd" class="mb-2">
                     <input type="hidden" name="NewsCastId" value="@NewsCastId" />
