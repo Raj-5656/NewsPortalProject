@@ -6,43 +6,47 @@
 
 <style>
     /* Navbar Styling */
+    body {
+        background-color: black;
+    }
     .navbar {
-        background-color: #007bff; /* Bootstrap's primary color */
+        background-color: #007bff;
     }
 
     .navbar-brand {
-        color: #fff !important; /* White color for the brand text */
+        color: #fff !important;
         font-weight: bold;
     }
 
     .navbar-nav .nav-link {
-        color: #fff !important; /* White color for the nav links */
+        color: #fff !important;
         font-weight: 500;
         transition: color 0.3s;
     }
 
         .navbar-nav .nav-link:hover {
-            color: #f8f9fa !important; /* Slightly lighter color on hover */
+            color: #f8f9fa !important;
         }
 
-    /* Form Styling */
-    .form-container {
-        max-width: 600px; /* Set maximum width for the form */
-        margin: 50px auto; /* Center the form on the page */
-        background-color: #f0f0f0; /* Light gray background color */
-        padding: 30px; /* Add some padding inside the container */
-        border-radius: 8px; /* Rounded corners */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-        text-align: left; /* Align text to left */
+    /* Card Styling */
+    .card {
+        border: 1px solid white;
+        transition: transform 0.2s;
+        border-radius: 15px;
+        width: 450px;
+        background: linear-gradient(to right,#fc2a0096, #555555);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
 
-    h2 {
-        background-color: #007bff; /* Blue background color for h2 */
-        color: #fff; /* White text color for h2 */
-        padding: 10px; /* Add padding to h2 */
-        border-radius: 8px; /* Rounded corners for h2 */
-        margin-bottom: 30px; /* Add margin bottom to h2 */
-        text-align: center; /* Center align h2 text */
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+    .card-header {
+        
+        color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
     }
 
     label {
@@ -50,54 +54,60 @@
     }
 
     .form-group {
-        margin-bottom: 20px; /* Add margin bottom to form groups */
+        
+        margin-bottom: 25px;
     }
 
     /* Button Styling */
-    .btn-dark {
-        background-color: #007bff; /* Blue background color */
-        border-color: #007bff;
+    .btn-primary {
+        background: linear-gradient(135deg, #FA421B, #555555);
+        border-radius: 15px;
+        border: none;
     }
 
-        .btn-dark:hover {
-            background-color: #0056b3; /* Darker blue color on hover */
-            border-color: #0056b3;
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #f9462a, #4a4a4a);
         }
+        
 </style>
 
-<div class="container-fluid" style="height: 100vh; background-color: white; display: flex; align-items: center; justify-content: center;">
-    <div class="form-container">
-        <h2>Add News</h2>
-        <form method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="Title">News Title</label>
-                <input class="form-control" type="text" name="Title" id="Title" />
-            </div>
+<div class="container-fluid" style="height: 100vh; background-color: black; display: flex; align-items: center; justify-content: center;">
+    <div class="card shadow">
+        <div class="card-header text-center">
+            <h4 class="card-title mb-0">Add News</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group text-white">
+                    <label for="Title" style="margin-left: 5px;">News Title</label>
+                    <input class="form-control" type="text" name="Title" id="Title" style="border-radius: 15px; margin-top: 10px;" />
+                </div>
 
-            <div class="form-group">
-                <label for="Text">News Text</label>
-                <textarea class="form-control" id="Text" name="Text" rows="4"></textarea>
-            </div>
+                <div class="form-group text-white">
+                    <label for="Text" style="margin-left:5px;">News Text</label>
+                    <textarea class="form-control" id="Text" name="Text" rows="4" style="border-radius: 15px; margin-top: 10px;"></textarea>
+                </div>
 
-            <div class="form-group">
-                <label for="NewsCategoryId">News Category</label>
-                <select class="form-control" name="NewsCategoryId" id="NewsCategoryId">
-                    @foreach (var item in Model)
-                    {
-                        <option value="@item.NewsCategoryId">@item.Category</option>
-                    }
-                </select>
-            </div>
+                <div class="form-group text-white">
+                    <label for="NewsCategoryId" style="margin-left:5px;">News Category</label>
+                    <select class="form-control" name="NewsCategoryId" id="NewsCategoryId" style="border-radius: 15px; margin-top: 10px;">
+                        @foreach (var item in Model)
+                        {
+                            <option value="@item.NewsCategoryId">@item.Category</option>
+                        }
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="Image">News Image</label>
-                <input class="form-control-file" type="file" name="Image" id="Image" />
-            </div>
+                <div class="form-group text-white">
+                    <label for="Image" style="margin-left:5px;">News Image</label>
+                    <input class="form-control-file" type="file" name="Image" id="Image" style="border-radius: 15px; margin-top: 10px;" />
+                </div>
 
-            <div class="form-group">
-                <input type="submit" class="btn btn-dark btn-block" value="Add News" />
-            </div>
-        </form>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary btn-block">Add News</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -4,58 +4,66 @@
     ViewBag.Title = "SignUp";
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
-
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card p-4" style="background-color: #f8f9fa;">
-            <div class="card-header bg-primary text-white text-center">
+<style>
+    html, body {
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        height:130vh;
+    }
+</style>
+<div class="row justify-content-center" >
+    <div class="col-md-6" >
+        <div class="card p-5" style="background: linear-gradient(to right, rgba(252, 42, 0, 0.8), rgba(85, 85, 85,0.8));">
+            <div class="card-header bg-transparent text-white text-center">
                 <h4 class="card-title mb-0">Sign Up</h4>
+                <br />
             </div>
             <div class="card-body">
                 <form method="post" enctype="multipart/form-data">
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="Name" class="form-label">Name</label>
-                            <input type="text" class="form-control" name="Name" id="Name" required />
+                            <label for="Name"  class="form-label text-white">Name</label>
+                            <input type="text" class="form-control" placeholder="First Name" name="Name" id="Name" required style="border-radius: 15px;" />
                         </div>
                         <div class="col">
-                            <label for="Surname" class="form-label">Surname</label>
-                            <input type="text" class="form-control" name="Surname" id="Surname" required />
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col">
-                            <label for="Age" class="form-label">Age</label>
-                            <input type="number" class="form-control" name="Age" id="Age" required />
+                            <label for="Surname" class="form-label text-white">Surname</label>
+                            <input type="text" class="form-control" placeholder="Last Name" name="Surname" id="Surname" required style="border-radius: 15px;" />
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="Email" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="Email" id="Email" required />
+                            <label for="Age" class="form-label text-white">Age</label>
+                            <input type="number" class="form-control" placeholder="Enter Your Age" name="Age" id="Age" required style="border-radius: 15px;" />
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="Password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="Password" id="Password" required />
+                            <label for="Email" class="form-label text-white">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter Your Mail" name="Email" id="Email" required style="border-radius: 15px;" />
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="Gender" class="form-label">Gender</label>
-                            @Html.EnumDropDownListFor(model => model.Gender, htmlAttributes: new { @class = "form-control" })
+                            <label for="Password" class="form-label text-white">Password</label>
+                            <input type="password" class="form-control" placeholder="Create New Password" name="Password" id="Password" required style="border-radius: 15px;" />
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label for="Image" class="form-label">Profile Picture</label>
-                            <input type="file" class="form-control" name="Image" id="Image" accept="image/*" />
+                            <label for="Gender" class="form-label text-white">Gender</label>
+                            @Html.EnumDropDownListFor(model => model.Gender, htmlAttributes: new { @class = "form-control",placeholder="Select Your Gender",  style = "border-radius: 15px;" })
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label for="Image" class="form-label text-white">Profile Picture</label>
+                            <input type="file" class="form-control" name="Image" id="Image" accept="image/*" style="border-radius: 15px;" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col text-center">
-                            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                            <button type="submit" class="btn btn-primary btn-lg" style="background: linear-gradient(135deg, #FA421B, #555555); border-radius: 15px; border: none;">Sign Up</button>
                         </div>
                     </div>
                 </form>

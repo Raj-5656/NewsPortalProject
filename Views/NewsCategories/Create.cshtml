@@ -30,32 +30,33 @@
     .form-container {
         max-width: 600px; /* Set maximum width for the form */
         margin: 50px auto; /* Center the form on the page */
-        background-color: #f0f0f0; /* Light gray background color */
+        background: linear-gradient(to right,#fc2a0096, #555555); /* Light gray background color */
         padding: 30px; /* Add some padding inside the container */
         border-radius: 8px; /* Rounded corners */
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
     }
 
     h4 {
-        background-color: #007bff; /* Blue background color for h4 */
+         /* Blue background color for h4 */
         color: #fff; /* White text color for h4 */
         padding: 10px; /* Add padding to h4 */
         border-radius: 8px; /* Rounded corners for h4 */
-        margin-bottom: 30px; /* Add margin bottom to h4 */
+         /* Add margin bottom to h4 */
         text-align: center; /* Center align h4 text */
     }
 
     label {
         font-weight: bold;
+        color:white;
         margin-bottom: 10px; /* Add margin to the bottom of the label */
     }
 
     /* Button Styling */
     .btn-default {
-        background-color: #007bff; /* Blue background color */
-        border-color: #007bff;
+        background: linear-gradient(to right,#fc2a0096, #555555); /* Blue background color */
+        border:none;
         margin-top: 20px;
-        color:white;
+        color: white;
     }
 
         .btn-default:hover {
@@ -65,7 +66,7 @@
         }
 </style>
 
-<div class="container-fluid" style="height: 100vh; background-color: white; display: flex; align-items: center; justify-content: center;">
+<div class="container-fluid" style="height: 100vh; background-color: black; display: flex; align-items: center; justify-content: center;">
     <div class="form-container">
         @using (Html.BeginForm())
         {
@@ -76,7 +77,7 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label" })
+                @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label"  })
                 @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
             </div>
