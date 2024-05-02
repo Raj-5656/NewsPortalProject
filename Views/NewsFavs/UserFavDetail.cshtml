@@ -18,8 +18,10 @@
 
     /* Add border-radius to the top of the card image */
     .card-img-top {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        object-fit: cover;
+        height: 250px
     }
 
 </style>
@@ -35,20 +37,20 @@
             var Text = item.GetType().GetProperty("Text").GetValue(item, null);
             var NewsCastId = item.GetType().GetProperty("NewsCastId").GetValue(item, null);
             var MultimediaUrl = item.GetType().GetProperty("MultimediaUrl").GetValue(item, null);
-            <div class="col-6" style="margin-bottom: 20px;">
+            <div class="col-6" style="margin-bottom: 80px;">
                 <div class="card h-100 rounded" style="width:100%; margin-top:15px; transition: transform 0.3s ease-in-out;">
                     <img src="~/Images/NewsImages/@MultimediaUrl" class="card-img-top rounded-top img-fluid" alt="MultimediaUrl" style="height: 200px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                     <div class="card-body">
-                        <h3 class="card-title">@Title</h3>
-                        <p class="card-text">@Text.ToString().Substring(0, 200) ....</p>
+                        <h4 class="card-title" style="color:black;">@Title</h4>
+                        <p class="card-text" style="color:black;">@Text.ToString().Substring(0, 200) ....</p>
                         <form method="post" action="/NewsCasts/MainNewsAllDetail">
                             <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                            <button class="btn btn-danger" type="submit">Go Details, Comments and Shares</button>
+                            <button class="btn" type="submit" style="background-color:mediumpurple; color:white;">Go Details, Comments and Shares</button>
                         </form>
                         <div style="margin-top:10px;display:inline-block;">
                             <form method="post" action="/NewsFavs/UserDelFav">
                                 <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                                <button type="submit" class="btn btn-danger">Delete from Favorites</button>
+                                <button type="submit" class="btn" style="background-color:mediumpurple; color:white;">Delete from Favorites</button>
                             </form>
                         </div>
                     </div>

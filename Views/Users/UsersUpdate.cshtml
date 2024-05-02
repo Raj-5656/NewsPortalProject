@@ -7,15 +7,16 @@
 <style>
     /* Profile Update styling */
     .profile-update {
-        
+        background-color:white;
         padding: 40px;
+        margin-bottom:70px;
         border-radius: 15px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
     /* Form styling */
     .profile-form {
-        background-color: #333333;
+        background-color: lightgray ;
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -23,17 +24,14 @@
 
     /* Button styling */
     .btn-success {
-        background-color: #4CAF50;
-        border-color: #4CAF50;
+        background-color: mediumpurple;
+        border:none;
         border-radius: 25px;
         padding: 10px 20px;
         transition: background-color 0.3s ease-in-out;
     }
 
-        .btn-success:hover {
-            background-color: #45a049;
-            border-color: #45a049;
-        }
+        
 
     /* Form input styling */
     .form-control {
@@ -65,7 +63,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="profile-update">
-                <h1 class="profile-heading">Update Profile</h1>
+                <h2 class="profile-heading" style="color:black;">Update Profile</h2>
                 <img src="~/Images/UserImages/@Model.ImageUrl" width="150" class="profile-photo" />
 
                 <div class="profile-form">

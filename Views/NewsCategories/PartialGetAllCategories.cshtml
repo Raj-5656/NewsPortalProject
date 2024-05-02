@@ -6,20 +6,30 @@
 }
 
 <style>
+    
+    }
     .btn{
-        color:white;
+        color:black;
         
-        border-color:white;
+    }
+    .btn:hover{
+        color:white;
+        background-color:mediumpurple;
+    }
+    .card:hover{
+      transform:none; 
+      transition:none;
+      box-shadow:none;
     }
 </style>
-<div class="card" style="padding:20px; margin-top:15px; height:60vw;">
+<div class="card" style="padding:0px; height:60vw;border-radius:0; background-color:white; color:black; margin-top:0;transform:none; transition:none;">
 
     @foreach (var item in Model)
     {
 
         <form method="post" action="/NewsCasts/MainNewsCategory">
             <input type="hidden" name="NewsCategoryId" id="NewsCategoryId" value="@Html.DisplayFor(modelItem => item.NewsCategoryId)" />
-            <button style="border-radius:4px;margin-top:7px;width:100%" class="btn btn-danger" list-group-item-action list-group-item-dark" type="submit">@Html.DisplayFor(modelItem => item.Category)</button>
+            <button style="margin-top:4px;width:100%" class="btn " list-group-item-action list-group-item-dark" type="submit">@Html.DisplayFor(modelItem => item.Category)</button>
         </form>
 
     }

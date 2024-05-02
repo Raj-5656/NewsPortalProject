@@ -10,8 +10,8 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         max-width: 400px;
-        background-color: #333333; /* Dark gray background color */
-        color: #ffffff; /* White text color */
+        background-color: white; /* Dark gray background color */
+        color: black; /* White text color */
         margin-bottom: 50px;
     }
 
@@ -33,33 +33,30 @@
 
     .list-group-item {
         border: none;
-        background-color: #444444;
+        background-color: lightgray;
         margin-top: 15px;
         padding: 10px 15px;
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        color: #ffffff; /* White text color */
+        color: black; /* White text color */
     }
 
         .list-group-item b {
             font-weight: 600;
-            color: #ffffff; /* White text color for bold items */
+            color: black; /* White text color for bold items */
         }
 
     .btn-primary {
         margin-top: 15px;
         padding: 10px 20px;
         border-radius: 25px;
-        background-color: #4CAF50;
-        border-color: #4CAF50;
+        background-color: mediumpurple;
+        border:none;
         color: #ffffff;
         transition: background-color 0.3s ease-in-out;
     }
 
-        .btn-primary:hover {
-            background-color: #45a049;
-            border-color: #45a049;
-        }
+        
 
     .fa {
         margin-right: 10px;
@@ -75,7 +72,7 @@
     .profile {
         text-align: center;
         margin-bottom: 20px;
-        color: #ffffff; /* White text color */
+        color: black; /* White text color */
     }
 
     .profile-info {
@@ -87,7 +84,7 @@
     <div class="row justify-content-center center-profile-card">
         <div class="col-md-8">
             <div class="profile-card">
-                <h2 class="text-center mt-4 profile">My Profile</h2>
+                <h3 class="text-center mt-4 profile">My Profile</h3>
                 <img src="~/Images/UserImages/@Model.ImageUrl" class="profile-img" alt="User Image">
                 <div class="card-body">
                     <ul class="list-group list-group-flush profile-info">

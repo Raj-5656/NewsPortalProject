@@ -30,7 +30,7 @@
     .form-container {
         max-width: 600px; /* Set maximum width for the form */
         margin: 50px auto; /* Center the form on the page */
-        background: linear-gradient(to right,#fc2a0096, #555555); /* Light gray background color */
+        background: white; /* Light gray background color */
         padding: 30px; /* Add some padding inside the container */
         border-radius: 8px; /* Rounded corners */
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
@@ -47,42 +47,43 @@
 
     label {
         font-weight: bold;
-        color:white;
+        color:black;
         margin-bottom: 10px; /* Add margin to the bottom of the label */
     }
 
     /* Button Styling */
     .btn-default {
-        background: linear-gradient(to right,#fc2a0096, #555555); /* Blue background color */
+        background-color: mediumpurple; /* Blue background color */
         border:none;
         margin-top: 20px;
+        margin-left:80px;
         color: white;
     }
 
         .btn-default:hover {
-            background-color: #0056b3; /* Darker blue color on hover */
-            border-color: #0056b3;
+            background-color:mediumpurple; /* Darker blue color on hover */
+            border-color:none;
             color: white;
         }
 </style>
 
-<div class="container-fluid" style="height: 100vh; background-color: black; display: flex; align-items: center; justify-content: center;">
+<div class="container-fluid" style="height: 100vh; background-color: rgb(237, 234, 234); display: flex; align-items: center; justify-content: center;">
     <div class="form-container">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
 
-            <h4>Add News Category</h4>
+            <h4 style="color:black;">Add News Category</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label"  })
+                @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label" })
                 @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
             </div>
 
-            <div class="form-group">
+            <div class="form-group" >
                 <input type="submit" value="Create" class="btn btn-default btn-block" />
             </div>
         }

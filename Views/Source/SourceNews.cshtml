@@ -5,12 +5,15 @@
 
 <style>
     /* Navbar Styling */
+    body {
+        background-color: rgb(237, 234, 234);
+    }
     .navbar {
-        background-color: #007bff;
+        background-color: white;
     }
 
     .navbar-brand {
-        color: #fff !important;
+        color: white !important;
         font-weight: bold;
     }
 
@@ -26,7 +29,7 @@
 
     /* Card Styling */
     .card {
-        border: 1px solid white;
+        border: none;
         transition: transform 0.2s;
         border-radius: 15px;
         height: 100%;
@@ -46,8 +49,8 @@
     }
 
     .card-body {
-        background-color: black;
-        color: white;
+        background-color: white;
+        color: black;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
         height: calc(100% - 20px);
@@ -91,7 +94,7 @@
                         <div class="card shadow">
                             <img src="~/Images/NewsImages/@MultimediaUrl" class="card-img-top" alt="MultimediaUrl">
                             <div class="card-body">
-                                <h3 class="card-title">@Title</h3>
+                                <h4 class="card-title">@Title</h4>
                                 <p class="card-text">@Text</p>
 
                                 <div class="comment mt-4">

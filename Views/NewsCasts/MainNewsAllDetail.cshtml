@@ -27,12 +27,12 @@
         display: inline-block;
     }
     .btn{
-        background-color:brown;
-        color:white;
+        
+        color:black;
     }
 </style>
 
-<div class="container" style="max-width: 800px;">
+<div class="container" style="max-width: 800px; margin-bottom:70px;">
     @foreach (var item in Model)
     {
         var Title = item.GetType().GetProperty("Title").GetValue(item, null);
@@ -47,12 +47,12 @@
         <div class="card">
             <img src="~/Images/NewsImages/@MultimediaUrl" style="height:350px;border-radius:20px 20px 0 0; object-fit: cover;" class="card-img-top" alt="MultimediaUrl">
             <div class="card-body">
-                <h3 class="card-title">@Title</h3>
-                <p class="card-text">@Text</p>
+                <h4 class="card-title" style="color:black;">@Title</h4>
+                <p class="card-text" style="color:black;">@Text</p>
 
                 <!-- Source Box -->
                 <div class="source-box">
-                    <h5><b>Source</b></h5>
+                    <h5 style="color:black;"><b>Source</b></h5>
                     <span>@CorpationName</span>
                 </div>
 
@@ -75,7 +75,7 @@
                             <input type="text" name="Comment" class="form-control" placeholder="Your Comments Here"/>
                         </div>
                         <div class="col-3">
-                            <button class="btn btn-success w-100" type="submit">Comment</button>
+                            <button class="btn w-100" type="submit" style="background-color:mediumpurple; color:white;">Comment</button>
                         </div>
                     </div>
                     <input type="hidden" name="NewsCastId" value="@NewsCastId" />
@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-3">
                             <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                            <button class="btn btn-success w-100" type="submit">Share</button>
+                            <button class="btn w-100" type="submit" style="background-color:mediumpurple; color:white;">Share</button>
                         </div>
                     </div>
                 </form>
@@ -96,15 +96,15 @@
                 <!-- Favorite, Subscribe, Tweet Buttons -->
                 <form method="post" action="/NewsCasts/SendTweet" class="mb-2">
                     <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                    <button class="btn btn-outline-danger w-100" type="submit">Send</button>
+                    <button class="btn w-100" type="submit" style="background-color:mediumpurple; color:white;">Send</button>
                 </form>
                 <form method="post" action="/NewsFavs/UserFavAdd" class="mb-2">
                     <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                    <button class="btn btn-primary w-100" type="submit">Add to Favorites</button>
+                    <button class="btn w-100" type="submit" style="background-color:mediumpurple; color:white;">Add to Favorites</button>
                 </form>
                 <form method="post" action="/NewsSubscribers/UserAddSubs" class="mb-2">
                     <input type="hidden" name="NewsSourceId" value="@NewsSourceId" />
-                    <button class="btn btn-primary w-100" type="submit">Subscribe to Source</button>
+                    <button class="btn w-100" type="submit" style="background-color:mediumpurple; color:white;">Subscribe to Source</button>
                 </form>
             </div>
         </div>

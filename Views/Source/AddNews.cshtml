@@ -7,7 +7,7 @@
 <style>
     /* Navbar Styling */
     body {
-        background-color: black;
+        background-color: rgb(237, 234, 234);
     }
     .navbar {
         background-color: #007bff;
@@ -30,11 +30,11 @@
 
     /* Card Styling */
     .card {
-        border: 1px solid white;
+        border:none;
         transition: transform 0.2s;
         border-radius: 15px;
         width: 450px;
-        background: linear-gradient(to right,#fc2a0096, #555555);
+        background-color: white;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
 
@@ -71,25 +71,25 @@
         
 </style>
 
-<div class="container-fluid" style="height: 100vh; background-color: black; display: flex; align-items: center; justify-content: center;">
+<div class="container-fluid" style="height: 100vh; background-color: rgb(237, 234, 234); display: flex; align-items: center; justify-content: center;">
     <div class="card shadow">
         <div class="card-header text-center">
-            <h4 class="card-title mb-0">Add News</h4>
+            <h4 class="card-title mb-0" style="color:black;">Add News</h4>
         </div>
         <div class="card-body">
             <form method="post" enctype="multipart/form-data">
                 <div class="form-group text-white">
-                    <label for="Title" style="margin-left: 5px;">News Title</label>
+                    <label for="Title" style="margin-left: 5px; color: black;">News Title</label>
                     <input class="form-control" type="text" name="Title" id="Title" style="border-radius: 15px; margin-top: 10px;" />
                 </div>
 
                 <div class="form-group text-white">
-                    <label for="Text" style="margin-left:5px;">News Text</label>
+                    <label for="Text" style="margin-left: 5px; color: black;">News Text</label>
                     <textarea class="form-control" id="Text" name="Text" rows="4" style="border-radius: 15px; margin-top: 10px;"></textarea>
                 </div>
 
                 <div class="form-group text-white">
-                    <label for="NewsCategoryId" style="margin-left:5px;">News Category</label>
+                    <label for="NewsCategoryId" style="margin-left: 5px; color: black;">News Category</label>
                     <select class="form-control" name="NewsCategoryId" id="NewsCategoryId" style="border-radius: 15px; margin-top: 10px;">
                         @foreach (var item in Model)
                         {
@@ -99,12 +99,12 @@
                 </div>
 
                 <div class="form-group text-white">
-                    <label for="Image" style="margin-left:5px;">News Image</label>
-                    <input class="form-control-file" type="file" name="Image" id="Image" style="border-radius: 15px; margin-top: 10px;" />
+                    <label for="Image" style="margin-left: 5px; color: black;">News Image</label>
+                    <input class="form-control-file" type="file" name="Image" id="Image" style="border-radius:0;margin-left:5px; margin-top: 10px;" />
                 </div>
 
                 <div class="form-group text-center">
-                    <button type="submit" class="btn btn-primary btn-block">Add News</button>
+                    <button type="submit" class="btn btn-block" style="background-color:mediumpurple; color:white;">Add News</button>
                 </div>
             </form>
         </div>
