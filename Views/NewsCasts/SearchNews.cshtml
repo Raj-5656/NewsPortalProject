@@ -22,10 +22,10 @@ else
                         <img src="~/Images/NewsImages/@item.MultimediaUrl" class="card-img-top" alt="MultimediaUrl">
                         <div class="card-body">
                             <h4 class="card-title" style="color:black">@item.Title</h4>
-                            <p class="card-text" style="color:black">@item.Text.ToString().Substring(0, 200) ....</p>
+                            
                             <form method="post" action="/NewsCasts/MainNewsAllDetail">
                                 <input type="hidden" name="NewsCastId" value="@item.NewsCastId" />
-                                <button class="btn" type="submit" style="background-color:mediumpurple; color:white;">Go Details,Comments and Shares</button>
+                                <button class="btn" type="submit" style="background-color:mediumpurple; color:white; width:100%; margin-top:15px;">Go Details,Comments and Shares</button>
                             </form>
                             <br />
 

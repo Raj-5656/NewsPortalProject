@@ -12,7 +12,9 @@
 
     /* Ensure all cards have the same size */
     .card {
-        height: 650px; /* This ensures that all cards have the same height */
+        height: 650px;
+        
+        /* This ensures that all cards have the same height */
 
     }
 
@@ -37,20 +39,20 @@
             var Text = item.GetType().GetProperty("Text").GetValue(item, null);
             var NewsCastId = item.GetType().GetProperty("NewsCastId").GetValue(item, null);
             var MultimediaUrl = item.GetType().GetProperty("MultimediaUrl").GetValue(item, null);
-            <div class="col-6" style="margin-bottom: 80px;">
-                <div class="card h-100 rounded" style="width:100%; margin-top:15px; transition: transform 0.3s ease-in-out;">
+            <div class="col-6" style="margin-bottom: 80px; margin-left:80px;margin-right:50px; width:400px;">
+                <div class="card h-100 rounded" style=" margin-top:15px; transition: transform 0.3s ease-in-out;">
                     <img src="~/Images/NewsImages/@MultimediaUrl" class="card-img-top rounded-top img-fluid" alt="MultimediaUrl" style="height: 200px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;">
                     <div class="card-body">
                         <h4 class="card-title" style="color:black;">@Title</h4>
-                        <p class="card-text" style="color:black;">@Text.ToString().Substring(0, 200) ....</p>
+                        
                         <form method="post" action="/NewsCasts/MainNewsAllDetail">
                             <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                            <button class="btn" type="submit" style="background-color:mediumpurple; color:white;">Go Details, Comments and Shares</button>
+                            <button class="btn" type="submit" style="background-color:mediumpurple; color:white; width:100%; margin-top:15px;">Go Details, Comments and Shares</button>
                         </form>
-                        <div style="margin-top:10px;display:inline-block;">
+                        <div style="margin-top:10px;display:inline-block;" class="d-grid">
                             <form method="post" action="/NewsFavs/UserDelFav">
                                 <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                                <button type="submit" class="btn" style="background-color:mediumpurple; color:white;">Delete from Favorites</button>
+                                <button type="submit" class="btn btn-block" style="background-color:mediumpurple; color:white; width:100%; ">Delete from Favorites</button>
                             </form>
                         </div>
                     </div>

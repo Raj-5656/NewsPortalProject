@@ -16,8 +16,9 @@
         transition: transform 0.2s;
         border-radius: 15px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        height: 650px; /* Fixed height for the card */
+        height: 450px; /* Fixed height for the card */
         margin-bottom: 60px; /* Added margin at the bottom */
+        
     }
 
         .card:hover {
@@ -70,12 +71,10 @@
 
     .btn {
         margin-bottom: 20px;
-       
     }
     .details{
         background-color:mediumpurple;
     }
-
     .corp-name {
         color: mediumpurple;
     }
@@ -95,22 +94,19 @@
             var NewsCastId = item.GetType().GetProperty("NewsCastId").GetValue(item, null);
             var NewsSourceId = item.GetType().GetProperty("NewsSourceId").GetValue(item, null);
 
-            <div class="col-6">
+            <div class="col-5" style="margin-left:60px; margin-right:20px;">
                 <div class="card" style="width:100%; margin-top:15px;">
                     <img src="~/Images/NewsImages/@MultimediaUrl" class="card-img-top" alt="MultimediaUrl">
                     <div class="card-body">
                         <h4 class="card-title" style="color:black;">@Title</h4>
-                        <p class="card-text" style="color:black;">@Text.ToString().Substring(0, 200) ...</p>
+                        
 
                         <form method="post" action="/NewsCasts/MainNewsAllDetail">
                             <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                            <button class="btn details text-white" type="submit">Go To Details, Comments and Shares</button>
+                            <button class="btn details text-white" type="submit" style="width:100%; margin-top:20px;">Go To Details, Comments and Shares</button>
                         </form>
 
-                        <div class="source-container">
-                            <h6 style="color:black;"><b>Source</b></h6>
-                            <span class="corp-name">@CorpationName</span>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

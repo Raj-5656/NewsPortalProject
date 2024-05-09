@@ -20,19 +20,17 @@
             var NewsSourceId = item.GetType().GetProperty("NewsSourceId").GetValue(item, null);
 
             <div class="col-6">
-                <div class="card" style="width:100%;margin-top:15px;">
+                <div class="card" style=" height:470px;margin-left:40px; margin-top: 15px; width: 450px;">
                     <img src="~/Images/NewsImages/@MultimediaUrl" class="card-img-top" alt="MultimediaUrl">
                     <div class="card-body">
-                        <h3 class="card-title">@Title</h3>
-                        <p class="card-text">@Text.ToString().Substring(0, 200) ....</p>
+                        <h4 class="card-title" style="color:black;">@Title</h4>
+                        
                         <form method="post" action="/NewsCasts/MainNewsAllDetail">
                             <input type="hidden" name="NewsCastId" value="@NewsCastId" />
-                            <button class="btn btn-danger" type="submit">Go Details,Comments and Shares</button>
+                            <button class="btn" type="submit" style="background-color:mediumpurple; color:white; width:100%; margin-top:15px;">Go Details,Comments and Shares</button>
                         </form>
                         <br />
-                        <div style="padding:10px; border:solid black 1px;border-radius:5px 5px ;display:inline-block;margin-bottom:20px;">
-                            <h6><b> Source</b></h6> <span>  @CorpationName</span>
-                        </div>
+                        
 
 
 
