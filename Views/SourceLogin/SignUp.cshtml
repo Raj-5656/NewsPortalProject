@@ -29,7 +29,7 @@
                         Corporation Name
                     </div>
                     <div class="col-md-12 mt-3">
-                        @Html.EditorFor(model => model.CorpationName, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Your Email", style = "border-radius: 15px;" } })
+                        @Html.EditorFor(model => model.CorpationName, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Your Corporation Name", style = "border-radius: 15px;" } })
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         Corporation Password
                     </div>
                     <div class="col-md-12 mt-3">
-                        @Html.EditorFor(model => model.CorpationPassword, new { htmlAttributes = new { @class = "form-control", placeholder ="Create New Password", style = "border-radius: 15px;" } })
+                        @Html.EditorFor(model => model.CorpationPassword, new { htmlAttributes = new { @type = "password" ,@class = "form-control", placeholder ="Create New Password", style = "border-radius: 15px;" } })
                     </div>
                 </div>
             </div>

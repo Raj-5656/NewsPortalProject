@@ -27,7 +27,7 @@ namespace NewsPortalProject.Controllers
             {
                 return RedirectToAction("SourceNews", "Source");
             }
-            ViewBag.ErrorMessage = "Invalid Corpation Name Password Try Again";
+            ViewBag.ErrorMessage = "Invalid Corporation Name Password Try Again";
             return View();
         }
 
@@ -44,7 +44,7 @@ namespace NewsPortalProject.Controllers
             {
                 return RedirectToAction("Login");
             }
-            ViewBag.ErrorMessage = "Invalid Corpation Name Password Try Again";
+            ViewBag.ErrorMessage = "Invalid Corporation Name Password Try Again";
             return View(newsSource);
         }
 
